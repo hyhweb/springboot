@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotsale.base.entity.User">
+    <sql id="Base_Column_List" >
+        user_id, user_name, user_password, header_url, merchant,create_time
+    </sql>
+
+    <resultMap type="com.hotsale.base.entity.User" id="UserMap">
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="headerUrl" column="header_url"/>
+        <result property="merchant" column="merchant"/>
+        <result property="createTime" column="create_time"  javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+<insert id="add" parameterType="com.hotsale.base.entity.User">
+    INSERT  INTO user(
+    user_name,
+    user_password,
+    header_url,
+    merchant
+    ) VALUES (
+      #{userName},
+      #{userPassword},
+      #{headerUrl},
+      #{merchant}
+    )
+</insert>
+
+
+
+    <select id="list" resultMap="UserMap" parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from  user
+    </select>
+
+    <select id="getList" resultMap="UserMap" parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from  user
+    </select>
+
+
+
+    <select id="pageList" resultMap="UserMap" parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from  user
+        <if test="startRow!=null and pageSize!=null">
+            <![CDATA[LIMIT #{startRow},#{pageSize} ]]>
+        </if>
+    </select>
+
+    <select id="count" parameterType="map" resultType="Long">
+        select count(1) from user
+    </select>
+
+</mapper>
