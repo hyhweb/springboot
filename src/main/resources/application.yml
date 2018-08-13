@@ -26,6 +26,8 @@ redis:
           # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
           max-wait: -1
 
+server:
+    port: 8060
 #公共配置与profiles选择无关
 mybatis:
   typeAliasesPackage: com.hotsale.*.entity
