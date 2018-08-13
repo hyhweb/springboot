@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,13 +58,13 @@ public abstract class BaseServiceImpl<T extends BaseEntity, ID extends Serializa
      * @param queryReq 查询条件
      * @return
      */
-//    @Override
-//    public ApiResult list(QueryReq queryReq) {
-//        //直接调用Dao方法进行查询
-//        List<T> list = baseDao.queryAll(queryReq);
-//        return  ApiResult.success(list==null ? new ArrayList<T>() : list);
-//
-//    }
+    @Override
+    public ApiResult list(QueryReq queryReq) {
+        //直接调用Dao方法进行查询
+        List<T> list = baseDao.queryAll(queryReq);
+        return  ApiResult.success(list==null ? new ArrayList<T>() : list);
+
+    }
 
     /**
      * 根据查询条件，分页查询并返回t的分页结果

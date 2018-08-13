@@ -18,7 +18,7 @@ public interface BaseService<T extends BaseEntity, ID extends Serializable> {
      * @param queryReq 查询条件
      * @return
      */
-  //  public ApiResult list(QueryReq queryReq);
+    public ApiResult list(QueryReq queryReq);
 
     /**
      * 根据查询条件，分页查询并返回实体的分页结果

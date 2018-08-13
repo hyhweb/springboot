@@ -18,12 +18,12 @@ public abstract class CommonController<T extends BaseEntity> extends BaseControl
    /* @ApiOperation(value="查看", notes="查看")
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET )
     public abstract ApiResult get(@PathVariable Long id) ;
-
-//
-//    @ApiOperation(value="所有列表", notes="列表")
-//    @RequestMapping(value = "/list", method = RequestMethod.POST)
-//    public  abstract  ApiResult list(@RequestBody String json);
 */
+
+    @ApiOperation(value="所有列表", notes="列表")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public  abstract  ApiResult list(@RequestBody String json);
+
 
     @ApiOperation(value="分页列表", notes="分页列表")
     @RequestMapping(value = "/pageList", method = RequestMethod.POST)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hotsale.base.entity.User">
+<mapper namespace="com.hotsale.base.dao.UserDao">
     <sql id="Base_Column_List" >
         user_id, user_name, user_password, header_url, merchant,create_time
     </sql>
@@ -36,7 +36,11 @@
         <include refid="Base_Column_List" />
         from  user
     </select>
-
+    <select id="queryAll" resultMap="UserMap" parameterType="map">
+        select
+        <include refid="Base_Column_List" />
+        from  user
+    </select>
     <select id="getList" resultMap="UserMap" parameterType="map">
         select
         <include refid="Base_Column_List" />

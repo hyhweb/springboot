@@ -45,7 +45,7 @@ public interface BaseDao<T, PK extends Serializable>  {
     /**
      * 根据一组ID获得一组对象
      */
-//    public <V extends T> List<V> getByIds(List<PK> ids);
+    /*public <V extends T> List<V> getByIds(List<PK> ids);*/
 
     /**
      * 根据条件查询数据条件
@@ -61,7 +61,7 @@ public interface BaseDao<T, PK extends Serializable>  {
      * @param query
      * @return
      */
-//    public <V extends T> List<V> queryAll(QueryReq query);
+    public <V extends T> List<V> queryAll(QueryReq query);
 
     /**
      * 根据条件查询数据

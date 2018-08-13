@@ -35,10 +35,17 @@ public class UserController extends CommonController {
         } catch (Exception e) {
             return  ApiResult.fail(e.toString());
         }
-
-
     }
-
+    @Override
+    public ApiResult list(String json) {
+        try {
+            QueryReq queryReq = JSON.parseObject(json, QueryReq.class);
+            ApiResult pageList = userService.list(queryReq);
+            return  pageList;
+        } catch (Exception e) {
+            return  ApiResult.fail(e.toString());
+        }
+    }
     @Override
     public ApiResult save(@RequestBody(required = false) String json) {
         try {
